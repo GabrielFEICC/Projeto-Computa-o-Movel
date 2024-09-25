@@ -113,3 +113,19 @@ bool readButtonYes() {
 bool readButtonNo() {
   return digitalRead(buttonNo) == LOW;
 }
+
+void setup() {
+  lcd.begin(16, 2);
+  //definindo os pinMode dos LED
+  pinMode(redLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+  //definindo os pinMode dos Botoes
+  pinMode(buttonYes, INPUT_PULLUP);
+  pinMode(buttonNo, INPUT_PULLUP);
+  pinMode(buttonStart, INPUT_PULLUP);
+  
+  randomSeed(analogRead(0));
+  
+  lcd.print("Clique no Botao de Start");
+}
