@@ -96,3 +96,20 @@ void memoryPhase() {
       playSound(correctTone); //toca o som de acerto
     }
   }
+
+//verfica se o jogador acertou a sequencia
+  playSound(victoryTone);
+  lcd.clear();
+  lcd.print("Parabens, voce concluiu essa etapa!");
+  delay(2000);
+}
+
+//funcao para fazer o botao "yes" funcionar
+bool readButtonYes() {
+  return digitalRead(buttonYes) == LOW;
+}
+
+//funcao para fazer o botao "no" funcionar
+bool readButtonNo() {
+  return digitalRead(buttonNo) == LOW;
+}
