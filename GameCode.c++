@@ -69,3 +69,30 @@ void memoryPhase() {
     lcd.clear();
     lcd.print("Acertos: ");
     lcd.print(i + 1);
+
+//ira comecar quando o jogador apertar o botao de start
+    while (!inputReceived) {
+      if (readButtonYes()) {
+        playerSequence[i] = 1; 
+        inputReceived = true;
+      } else if (readButtonNo()) {
+        playerSequence[i] = 0;  
+        inputReceived = true;
+      }
+    }
+
+    //verifica se o jogador esta acertando a sequencia
+    if (!checkSequence(i)) {
+      playSound(wrongTone); //caso errre toca o som de erro
+      lcd.clear();
+      lcd.print("Errado:  ");
+      lcd.print(i + 1); //mostra em qual numero da sequencia o jogador errou
+      delay(2000);
+      lcd.clear();
+      lcd.print("Fim de Jogo!");
+      delay(2000);
+      return;  
+    } else {
+      playSound(correctTone); //toca o som de acerto
+    }
+  }
