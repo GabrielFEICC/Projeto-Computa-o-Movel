@@ -32,3 +32,40 @@ void generateLEDSequence() {
     ledSequence[i] = random(2);
   }
 }
+
+//jogo da memoria nos leds
+void showLEDSequence() {
+  for (int i = 0; i < 10; i++) {
+    if (ledSequence[i] == 0) {
+      digitalWrite(redLED, HIGH);
+    } else {
+      digitalWrite(greenLED, HIGH);
+    }
+    delay(500); 
+    digitalWrite(redLED, LOW);
+    digitalWrite(greenLED, LOW);
+    delay(500); 
+  }
+}
+
+//verifica se o jogador acertou a sequencia dos LED
+bool checkSequence(int currentStep) {
+  return playerSequence[currentStep] == ledSequence[currentStep];
+}
+
+//fase da memoria
+void memoryPhase() {
+  lcd.clear();
+  lcd.print("Fase da Memoria");
+  delay(2000);
+  
+  generateLEDSequence();//gera uma sequencia aleatoria dos LED
+  showLEDSequence();  //mostra a sequencia para o jogador 
+
+  for (int i = 0; i < 10; i++) {
+    bool inputReceived = false;
+
+    //mostra no LCD
+    lcd.clear();
+    lcd.print("Acertos: ");
+    lcd.print(i + 1);
