@@ -129,3 +129,20 @@ void setup() {
   
   lcd.print("Clique no Botao de Start");
 }
+
+void loop() {
+
+  if (digitalRead(buttonStart) == LOW && !gameStarted) {
+    gameStarted = true;
+    lcd.clear();
+    lcd.print("O Jogo vai comecar");
+    delay(1000);
+  }
+
+  if (gameStarted) {
+    memoryPhase();
+    gameStarted = false;
+    lcd.clear();
+    lcd.print("Clique novamente no Botao no Start");
+  }
+}
