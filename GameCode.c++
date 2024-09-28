@@ -13,11 +13,25 @@ const int buttonStart = 8;
 int ledSequence[10]; 
 int playerSequence[10]; 
 bool gameStarted = false; 
+bool memoryPassed = false; 
+bool questionSkipped = false; 
+bool askedQuestions[5] = {false, false, false, false, false};
 
 //frequencia dos sons no buzzer
 int correctTone = 1000;
 int wrongTone = 500;
 int victoryTone = 1500;
+int timeWarningTone = 700;
+
+// banco de perguntas e respostas
+const char* questions[] = {
+  "O sol é uma estrela?", 
+  "Plutão é planeta?", 
+  "CR7 é o GOAT?",
+  "3 x 9 = 27?",
+  "O gelo é quente?"
+};
+bool answers[] = {true, false, true, true, false};
 
 //funcao para tocar os sons e parar o som
 void playSound(int toneFrequency) {
