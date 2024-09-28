@@ -82,7 +82,7 @@ void memoryPhase() {
     //mostra no LCD
     lcd.clear();
     lcd.print("Acertos: ");
-    lcd.print(i + 1);
+    lcd.print(i);
 
 //ira comecar quando o jogador apertar o botao de start
     while (!inputReceived) {
@@ -114,7 +114,7 @@ void memoryPhase() {
 //verfica se o jogador acertou a sequencia
   playSound(victoryTone);
   lcd.clear();
-  lcd.print("Parabens, voce concluiu essa etapa!");
+  lcd.print("Memoria Completa");
   delay(2000);
 }
 
@@ -127,6 +127,46 @@ bool readButtonYes() {
 bool readButtonNo() {
   return digitalRead(buttonNo) == LOW;
 }
+
+//fase de perguntas
+void questionPhase() {
+  lcd.clear();
+  lcd.print("Fase de Perguntas");
+  delay(2000);
+  
+  int questionIndex = 0;
+  int askedCount = 0;
+  while (askedCount < 5) {
+    questionIndex = random(5); //selecionara uma pergutna do banco
+    
+    //verifica se a pergunta ja aconteceu
+    if (askedQuestions[questionIndex]) {
+      continue; /
+    }
+    askedQuestions[questionIndex] = true; 
+    askedCount++; 
+    
+    lcd.clear();
+    lcd.print(questions[questionIndex]); 
+    bool inputReceived = false;
+    bool playerAnswer = false;
+    unsigned long startTime = millis(); 
+
+    //aguarda o tempo de resposta do jogador
+    while (!inputReceived && (millis() - startTime < 10000)) { 
+      if (readButtonYes()) {
+        playerAnswer = true;
+        inputReceived = true;
+      } else if (readButtonNo()) {
+        playerAnswer = false;
+        inputReceived = true;
+      }
+      
+      //o buzzer ira emitir um som que o tempo esta acabando
+      if (millis() - startTime >= 5000) {
+        playSound(timeWarningTone);
+      }
+    }
 
 void setup() {
   lcd.begin(16, 2);
