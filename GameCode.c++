@@ -168,14 +168,14 @@ void questionPhase() {
       }
     }
 
-    // Se o tempo acabar e não houver resposta
+    //se o tempo tiver acabando e o jogador nao responder, pula uma questao
     if (!inputReceived) {
       if (!questionSkipped) {
         lcd.clear();
         lcd.print("Pergunta Pulada!");
-        questionSkipped = true; // Permite pular uma pergunta
+        questionSkipped = true; 
         delay(2000);
-        continue; // Vai para a próxima pergunta
+        continue; 
       } else {
         lcd.clear();
         lcd.print("Tempo Esgotado!");
@@ -186,6 +186,26 @@ void questionPhase() {
         return;
       }
     }
+
+
+    //verifica se o jogador acertou a pergunta
+    if (playerAnswer == answers[questionIndex]) {
+      playSound(correctTone); 
+      lcd.clear();
+      lcd.print("Resposta Correta!");
+    } else {
+      playSound(wrongTone); 
+      lcd.clear();
+      lcd.print("Resposta Errada!");
+      delay(2000);
+      lcd.clear();
+      lcd.print("Fim de Jogo!");
+      delay(2000);
+      return;
+    }
+    
+    delay(2000); 
+  }
 
 void setup() {
   lcd.begin(16, 2);
