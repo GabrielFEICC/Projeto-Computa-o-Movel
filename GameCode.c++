@@ -168,6 +168,25 @@ void questionPhase() {
       }
     }
 
+    // Se o tempo acabar e não houver resposta
+    if (!inputReceived) {
+      if (!questionSkipped) {
+        lcd.clear();
+        lcd.print("Pergunta Pulada!");
+        questionSkipped = true; // Permite pular uma pergunta
+        delay(2000);
+        continue; // Vai para a próxima pergunta
+      } else {
+        lcd.clear();
+        lcd.print("Tempo Esgotado!");
+        delay(2000);
+        lcd.clear();
+        lcd.print("Fim de Jogo!");
+        delay(2000);
+        return;
+      }
+    }
+
 void setup() {
   lcd.begin(16, 2);
   //definindo os pinMode dos LED
