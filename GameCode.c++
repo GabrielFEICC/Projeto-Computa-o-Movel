@@ -137,11 +137,11 @@ void questionPhase() {
   int questionIndex = 0;
   int askedCount = 0;
   while (askedCount < 5) {
-    questionIndex = random(5); //selecionara uma pergutna do banco
+    questionIndex = random(5);
     
     //verifica se a pergunta ja aconteceu
     if (askedQuestions[questionIndex]) {
-      continue; /
+      continue; 
     }
     askedQuestions[questionIndex] = true; 
     askedCount++; 
@@ -271,18 +271,28 @@ void setup() {
 }
 
 void loop() {
-
   if (digitalRead(buttonStart) == LOW && !gameStarted) {
     gameStarted = true;
     lcd.clear();
-    lcd.print("O Jogo vai comecar");
+    lcd.print("O Jogo vai");
+    lcd.setCursor(0, 1);
+    lcd.print("Comecar");
     delay(1000);
   }
 
   if (gameStarted) {
     memoryPhase();
+    //avancar se passar da memoria
+    if(gameStarted){
+      questionPhase();
+    }
     gameStarted = false;
+    questionSkipped = false;
+    memoryPassed = false;
+    for(int i = 0; i < 5; i++){
+      askedQuestions[i] = false;
+    }
     lcd.clear();
-    lcd.print("Clique novamente no Botao no Start");
+    lcd.print("Clique no Start");
   }
 }
