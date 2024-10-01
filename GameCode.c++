@@ -207,6 +207,36 @@ void questionPhase() {
     delay(2000); 
   }
 
+ // pergunta final
+  lcd.clear();
+  lcd.print("Indo para a pergunta");
+  lcd.setCursor(0, 1);
+  lcd.print("final!");
+  delay(2000);
+  
+  // pergunta final
+  lcd.clear();
+  lcd.print(finalQuestion);
+  bool inputReceived = false;
+  bool playerAnswer = false;
+  unsigned long startTime = millis();
+
+  //esperando jogador responder
+  while (!inputReceived && (millis() - startTime < 10000)) {
+    if (readButtonYes()) {
+      playerAnswer = true;
+      inputReceived = true;
+    } else if (readButtonNo()) {
+      playerAnswer = false;
+      inputReceived = true;
+    }
+    
+    // 5 segundos faltando
+    if (millis() - startTime >= 5000) {
+      playSound(timeWarningTone);
+    }
+  }
+
 void setup() {
   lcd.begin(16, 2);
   //definindo os pinMode dos LED
