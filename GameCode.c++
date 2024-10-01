@@ -237,6 +237,23 @@ void questionPhase() {
     }
   }
 
+  //ve se o jogador acerta a pergunta final
+  if (playerAnswer == finalAnswer) {
+    playSound(victoryTone); 
+    lcd.clear();
+    lcd.print("Parabens, Vitoria!");
+  } else {
+    playSound(wrongTone); 
+    lcd.clear();
+    lcd.print("Resposta Errada!");
+    delay(2000);
+    lcd.clear();
+    lcd.print("Fim de Jogo!");
+  }
+  
+  delay(2000); 
+}
+
 void setup() {
   lcd.begin(16, 2);
   //definindo os pinMode dos LED
