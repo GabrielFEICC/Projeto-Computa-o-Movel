@@ -25,13 +25,17 @@ int timeWarningTone = 700;
 
 // banco de perguntas e respostas
 const char* questions[] = {
-  "O sol é uma estrela?", 
-  "Plutão é planeta?", 
+  "22 e par?", 
+  "O ceu e verde?", 
   "CR7 é o GOAT?",
   "3 x 9 = 27?",
-  "O gelo é quente?"
+  "O gelo e quente?"
 };
 bool answers[] = {true, false, true, true, false};
+
+//fazendo a pergunta final
+const char* finalQuestion = "Voce e feliz?";
+bool finalAnswer = true;
 
 //funcao para tocar os sons e parar o som
 void playSound(int toneFrequency) {
@@ -187,7 +191,6 @@ void questionPhase() {
       }
     }
 
-
     //verifica se o jogador acertou a pergunta
     if (playerAnswer == answers[questionIndex]) {
       playSound(correctTone); 
@@ -267,7 +270,7 @@ void setup() {
   
   randomSeed(analogRead(0));
   
-  lcd.print("Clique no Botao de Start");
+  lcd.print("Clique no Start");
 }
 
 void loop() {
@@ -293,6 +296,8 @@ void loop() {
       askedQuestions[i] = false;
     }
     lcd.clear();
-    lcd.print("Clique no Start");
+    lcd.print("Clique Novamente");
+    lcd.setCursor(0,1);
+    lcd.print("No Start");
   }
 }
