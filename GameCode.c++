@@ -103,12 +103,14 @@ void memoryPhase() {
     if (!checkSequence(i)) {
       playSound(wrongTone); //caso errre toca o som de erro
       lcd.clear();
-      lcd.print("Errado:  ");
+      lcd.print("Erro no passo:  ");
+      lcd.setCursor(0,1);
       lcd.print(i + 1); //mostra em qual numero da sequencia o jogador errou
       delay(2000);
       lcd.clear();
       lcd.print("Fim de Jogo!");
       delay(2000);
+      memoryPassed = false;
       return;  
     } else {
       playSound(correctTone); //toca o som de acerto
@@ -120,8 +122,8 @@ void memoryPhase() {
   lcd.clear();
   lcd.print("Memoria Completa");
   delay(2000);
+  memoryPassed = true;
 }
-
 //funcao para fazer o botao "yes" funcionar
 bool readButtonYes() {
   return digitalRead(buttonYes) == LOW;
@@ -286,9 +288,10 @@ void loop() {
   if (gameStarted) {
     memoryPhase();
     //avancar se passar da memoria
-    if(gameStarted){
+    if(memoryPassed) {
       questionPhase();
     }
+
     gameStarted = false;
     questionSkipped = false;
     memoryPassed = false;
