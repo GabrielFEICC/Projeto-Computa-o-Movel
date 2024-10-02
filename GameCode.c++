@@ -27,7 +27,7 @@ int timeWarningTone = 700;
 const char* questions[] = {
   "22 e par?", 
   "O ceu e verde?", 
-  "CR7 é o GOAT?",
+  "CR7 e o GOAT?",
   "3 x 9 = 27?",
   "O gelo e quente?"
 };
@@ -214,9 +214,9 @@ void questionPhase() {
 
  // pergunta final
   lcd.clear();
-  lcd.print("Indo para a pergunta");
+  lcd.print("Indo para");
   lcd.setCursor(0, 1);
-  lcd.print("final!");
+  lcd.print("pergunta final!");
   delay(2000);
   
   // pergunta final
@@ -246,7 +246,9 @@ void questionPhase() {
   if (playerAnswer == finalAnswer) {
     playSound(victoryTone); 
     lcd.clear();
-    lcd.print("Parabens, Vitoria!");
+    lcd.print("Parabens,");
+    lcd.setCursor(0, 1);
+    lcd.print("Vitoria!");
   } else {
     playSound(wrongTone); 
     lcd.clear();
