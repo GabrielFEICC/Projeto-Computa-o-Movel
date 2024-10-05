@@ -17,3 +17,13 @@ Após a entrega parcial, focamos em resolver o problema do lcd que não estava f
 Etapa 4:
 Após terminar o jogo de perguntas, começamos a desenvolver o código da fase final, que possui apenas uma pergunta também de sim ou não e caso o jogador acerte a questão, toca um som de vitória no buzzer e uma mensagem no lcd de 'parabéns pela vitória'. Caso o jogador erre a pergunta final o jogo será reiniciado por completo, irá voltar para o inicio do jogo que é o jogo da memoria. Depois de terminar o código fizemos algumas alterações no que ia vim escrito no lcd, fizemos uma contagem de acertos no jogo de memoria e quando o jogador erra mostra o passo que ele errou, na fase de perguntas quando ele acerta a pergunta, o lcd também retorna que a resposta foi correta e caso ao contrario ele retorna que a resposta foi errada e avisa também que a questão foi pulada e na fase final, caso o jogador acerte a ultima questão, o lcd ira retornar que você venceu o jogo.
 
+Funcionamento do Código:
+O código foi dividido em funções que controlam cada fase do jogo
+Fase da Memoria - utiliza LEDs para gerar uma sequência aleatória de que ira piscar 10 vezes, que o jogador deve memorizar e acertar nos botões do arduino. A cada acerto do jogador o buzzer ira reproduzir um som e caso o jogador erre, também vai reproduzir um outro som.
+Fase de Perguntas - Nesta fase, pega 5 perguntas do banco de perguntas e jogador deve responder com apenas sim ou não. O jogador também pode pular uma questão, caso pule mais uma questão, o jogo reinicia e caso ele erre a questão, o jogo também reinicia.
+Fase Final - Apenas uma pergunta final que também é de sim ou não. Caso o jogador acerte a questão, jogo é finalizado com um som de vitória e uma mensagem de que o jogador venceu o jogo e caso ele erre a pergunta, o jogo reinicia.
+
+Dificuldades Enfrentadas:
+Tivemos dificuldades em algumas coisas como:
+Sequência aleatória - no inicio, a sequencia de LEDs, não estava sendo gerada corretamente, pois a mesma sequência era mostrada sempre e conseguimos resolver esse problema usando a função randomSeed() para garantir que a sequência fosse realmente aleatória.
+Armazenamento das respostas - Outra dificuldade que tivemos foi em fazer com que o jogo reconhecesse a resposta correta do jogador. No começo o código não estava comparando a sequência correta, porém depois de alguns ajustes nas sequências e respostas, conseguimos resolver o problema.
