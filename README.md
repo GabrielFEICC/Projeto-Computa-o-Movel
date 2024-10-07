@@ -79,13 +79,10 @@ Funções principais:
 
 -FinalQuestion(): Faz a pergunta final para o jogador e verifica se ele acertou ou não.
 
-Dificuldades Enfrentadas:
-Tivemos dificuldades em algumas coisas como:
-Sequência aleatória - no inicio, a sequencia de LEDs, não estava sendo gerada corretamente, pois a mesma sequência era mostrada sempre e conseguimos resolver esse problema usando a função randomSeed() para garantir que a sequência fosse realmente aleatória.
-Armazenamento das respostas - Outra dificuldade que tivemos foi em fazer com que o jogo reconhecesse a resposta correta do jogador. No começo o código não estava comparando a sequência correta, porém depois de alguns ajustes nas sequências e respostas, conseguimos resolver o problema.
-
 Conclusão:
-Com o jogo finalizado, conseguimos terminar as 3 fases do projeto, que utilizamos 4 componentes essências que foram LEDs, botões, buzzer e o display lcd. Enfrentamos algumas dificuldades no projeto, porém conseguimos arrumar tudo e entregar o código completo para o professor na data prevista.
+
+O projeto foi desenvolvido passo a passo, começando pela montagem do circuito e depois pela programação do código em partes. O jogo final tem três fases: o jogo da memória, as perguntas e a pergunta final. Durante o jogo, o jogador é informado pelo LCD se acertou ou errou os desafios e o buzzer também informa o jogador emitindo sons de acertos e erros.
+
 ![Imagem arduino 1](https://github.com/user-attachments/assets/7ac2ab5e-bf32-409a-a419-72b19bcd777b)
 ![Imagem arduino 2](https://github.com/user-attachments/assets/2a8bc8e3-c3a8-494e-860a-83ee1e726922)
 ![Imagem arduino 3](https://github.com/user-attachments/assets/3174a96e-9d65-4539-bc56-96784c7deab3)
