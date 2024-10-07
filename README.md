@@ -83,6 +83,12 @@ Conclusão:
 
 O projeto foi desenvolvido passo a passo, começando pela montagem do circuito e depois pela programação do código em partes. O jogo final tem três fases: o jogo da memória, as perguntas e a pergunta final. Durante o jogo, o jogador é informado pelo LCD se acertou ou errou os desafios e o buzzer também informa o jogador emitindo sons de acertos e erros.
 
+![image](https://github.com/user-attachments/assets/f251305e-b6f1-4b75-9336-0ad910f4345b)
+
 ![Imagem arduino 1](https://github.com/user-attachments/assets/7ac2ab5e-bf32-409a-a419-72b19bcd777b)
+
 ![Imagem arduino 2](https://github.com/user-attachments/assets/2a8bc8e3-c3a8-494e-860a-83ee1e726922)
+
 ![Imagem arduino 3](https://github.com/user-attachments/assets/3174a96e-9d65-4539-bc56-96784c7deab3)
+
+
