@@ -3,10 +3,44 @@
 Projeto feito por Gabriel Lovato Camilo de Campos - 22.123.004-8 e Theo Zago Zimmermann - 22.123.035-2
 
 Visão Geral:
-Fizemos um jogo em arduino que consiste em 3 fases, na primeira fase possui um jogo da memória no qual os LEDs acendem 10 vezes aleatoriamente e o jogador deve decorar a sequência e passar de fase, a cada acerto toca um som do buzzer e caso o jogador não passe também vai tocar um outro som no buzzer, o jogo será reiniciado.Na segunda fase, quando o jogador passa do jogo de memória, iniciasse a fase de perguntas, no qual serão 5 perguntas com respostas de sim ou não e caso jogador erre uma questão, ele perderá o jogo e será reiniciado, porém o jogador pode pular uma questão caso ele não saiba, acertando todas as perguntas e tambem tocara um som no buzzer, vamos para a pergunta final, que consiste em apenas uma pergunta, também de sim ou não, caso o jogador acerte, ele ganha o jogo e toca som da vitoria no buzzer, e caso o jogador erre tocara outro som e o jogo vai reiniciar.
 
-Etapa 1:
-Quando começamos o projeto, primeira coisa em que focamos foi montar o arduino no tinkercad, conectando tudo que utilizamos que no caso foi, placa de ensaio, LEDs, fios, buzzer, potencializador, botões, resistores e o próprio arduino. Quando montamos o arduino, já começamos a fazer código, porém nos primeiros dias, focamos em apenas ligar os LEDs, fazer o som do buzzer funcionar, conectar cada botão, potencializador, buzzer, lcd no arduino, porém não conseguimos fazer o lcd ligar.
+Este projeto consiste no desenvolvimento de um jogo em Arduino que abrange três fases distintas. A primeira fase é um jogo da memória, onde os LEDs acendem 10 vezes aleatoriamente, e o jogador deve memorizar e reproduzir a sequência correta. Na segunda fase, o jogador responde a uma série de 5 perguntas de "Sim" ou "Não". Finalmente, a terceira fase apresenta uma única pergunta final. Sons são reproduzidos por um buzzer quando o jogador acerta ou erra uma questão, e um display LCD exibe as informações e mensagens durante o jogo.
+
+Componentes Utilizados:
+
+-Placa Arduino
+
+-LEDs
+
+-Buzzer
+
+-Botões
+
+-Display LCD
+
+-Resistores
+
+-Potenciômetro
+
+-Resistores
+
+-Placa de Ensaio
+
+-Fios
+
+Estrutura do Jogo
+
+Fase 1: Jogo da Memoria
+
+Nesta fase, o jogo gera uma sequência de 10 piscadas de LEDs de forma aleatória, e o jogador deve acertar essa sequência corretamente utilizando os botões conectados ao Arduino. Para cada acerto, um som é reproduzido no buzzer. Caso o jogador erre, o jogo reinicia automaticamente, com um som específico indicando a falha.
+
+Funcionamentos:
+
+-O LED pisca 10 vezes de forma aleatória.
+
+-O jogador deve tentar acertar a sequência.
+
+-Sons são emitidos a cada acerto e caso erre também vai tocar. Os sons são emitidos no Buzzer.
 
 Etapa 2:
 Depois que montamos o arduino e testamos os funcionamentos dos componentes, começamos a fazer o código do jogo da memória, no qual quando começamos a fazer o código, tivemos muita dificuldade em fazer a o sequência aleatória dos LEDs, que quando o jogador clicava no botão de start, sempre vinha a mesma sequência, porém depois de algum tempo conseguimos consertar isso. Porém ainda tivemos mais dificuldades quando conseguimos fazer a sequência aleatória dos LEDs funcionar, o código não estava salvando a resposta do jogador, o jogador poderia acertar a sequência que mesmo assim ele ia dar errado, nessa questão não tivemos muita dificuldade em consertar. Depois de conseguir arrumar esses erros, nós conseguimos terminar o jogo da memória antes da entrega parcial, mas ainda estávamos com o problema do lcd, não conseguíamos ligar ele de jeito nenhum e fomos para a entrega parcial com o circuito montado completo e o jogo de memoria completo também, faltando apenas fazer ligar o lcd
