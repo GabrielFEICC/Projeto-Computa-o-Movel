@@ -42,11 +42,29 @@ Funcionamentos:
 
 -Sons são emitidos a cada acerto e caso erre também vai tocar. Os sons são emitidos no Buzzer.
 
-Etapa 2:
-Depois que montamos o arduino e testamos os funcionamentos dos componentes, começamos a fazer o código do jogo da memória, no qual quando começamos a fazer o código, tivemos muita dificuldade em fazer a o sequência aleatória dos LEDs, que quando o jogador clicava no botão de start, sempre vinha a mesma sequência, porém depois de algum tempo conseguimos consertar isso. Porém ainda tivemos mais dificuldades quando conseguimos fazer a sequência aleatória dos LEDs funcionar, o código não estava salvando a resposta do jogador, o jogador poderia acertar a sequência que mesmo assim ele ia dar errado, nessa questão não tivemos muita dificuldade em consertar. Depois de conseguir arrumar esses erros, nós conseguimos terminar o jogo da memória antes da entrega parcial, mas ainda estávamos com o problema do lcd, não conseguíamos ligar ele de jeito nenhum e fomos para a entrega parcial com o circuito montado completo e o jogo de memoria completo também, faltando apenas fazer ligar o lcd
 
-Etapa 3:
-Após a entrega parcial, focamos em resolver o problema do lcd que não estava funcionando. Pesquisamos sobre o que poderia ter acontecido para o lcd não estar ligando e depois conseguimos ver que o erro estava que o lcd não estava conectado corretamente tanto na placa de ensaio e no lcd, depois de algum tempo, conseguimos consertar o lcd, agora como estávamos com tudo funcionando. Fomos para a segunda fase do jogo, que era fazer a fase de perguntas, no qual fizemos um sistema de perguntas de sim ou não. Usamos dois botões para fazer os botões de sim ou não que pega a resposta do jogador, todas as perguntas aparecem no lcd, adicionamos um som no buzzer para cada acerto para ser reproduzido e fizemos também para as respostas erradas e caso o jogador acerte todas as perguntas ele vai para a pergunta final, o jogador poderia pular uma questão, se ele não responder a pergunta em 10 segundos, depois de 5 segundos ira começar a tocar um som no buzzer para avisar que o tempo está acabando, porém o jogador consegue pular uma questão, caso ele já tenha pulada e questão e queira pular outro, não vai ser possível e o ele vai perder o jogo e ter que começar de novo. Não tivemos nenhuma dificuldade muito grande em fazer o jogo de perguntas.
+Fase 2: Jogo de Perguntas
+
+Depois de passar pela primeira fase, o jogador avança para a fase de perguntas. São feitas 5 perguntas com respostas de "Sim" ou "Não", que aparecem no display LCD. O jogador utiliza dois botões para responder às perguntas. Caso o jogador não saiba a resposta, ele pode pular uma pergunta, mas apenas uma vez. Se errar ou tentar pular mais de uma vez, o jogo reinicia.
+
+Funcionamento:
+
+-5 perguntas aparecem no LCD, respondidas com os botões de "Sim" ou "Não".
+
+-O jogador pode pular uma pergunta.
+
+-Se houver erro, o jogo reinicia.
+
+Fase 3: Pergunta Final
+
+Na última fase, o jogador recebe uma única pergunta. Se ele responder corretamente, um som de vitória é reproduzido e o display exibe uma mensagem de sucesso. Caso contrário, o jogo reinicia desde a primeira fase.
+
+Funcionamento:
+
+-O jogador responde a uma última pergunta de "Sim" ou "Não".
+
+-Sons e mensagens no LCD indicam se o jogador venceu ou perdeu.
+
 
 Etapa 4:
 Após terminar o jogo de perguntas, começamos a desenvolver o código da fase final, que possui apenas uma pergunta também de sim ou não e caso o jogador acerte a questão, toca um som de vitória no buzzer e uma mensagem no lcd de 'parabéns pela vitória'. Caso o jogador erre a pergunta final o jogo será reiniciado por completo, irá voltar para o inicio do jogo que é o jogo da memoria. Depois de terminar o código fizemos algumas alterações no que ia vim escrito no lcd, fizemos uma contagem de acertos no jogo de memoria e quando o jogador erra mostra o passo que ele errou, na fase de perguntas quando ele acerta a pergunta, o lcd também retorna que a resposta foi correta e caso ao contrario ele retorna que a resposta foi errada e avisa também que a questão foi pulada e na fase final, caso o jogador acerte a ultima questão, o lcd ira retornar que você venceu o jogo.
